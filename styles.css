@@ -11,7 +11,19 @@
   --red-soft: #ff7786;
   --shadow: 0 30px 90px rgba(255, 33, 63, 0.24);
 }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
 
+.logo-img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 12px; /* rounded corners */
+}
 * {
   box-sizing: border-box;
   margin: 0;
