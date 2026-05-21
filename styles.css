@@ -563,6 +563,12 @@ h1 span,
   font-size: 14px;
 }
 
+.social-links svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
 .footer-bottom {
   display: flex;
   justify-content: space-between;
