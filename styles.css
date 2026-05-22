@@ -734,8 +734,11 @@ h1 span,
   .project-card { padding: 14px; border-radius: 20px; }
   .project-card img { height: 180px; border-radius: 14px; }
 
-  .service-icon { width: 48px; height: 48px; font-size: 20px; margin-bottom: 14px; }
-
+  .service-icon{
+    border-radius: 20px;
+    overflow: hidden; /* important */
+    border: 2px solid #ff3b3b; /* optional line */
+}
   .service-card h3,
   .step h3,
   .project-card h3,
