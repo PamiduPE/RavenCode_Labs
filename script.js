@@ -39,8 +39,36 @@ if (glow && window.matchMedia('(pointer: fine)').matches) {
   }, { passive: true });
 }
 
-document.querySelector('.contact-form')?.addEventListener('submit', (e) => {
+document.querySelector('.contact-form')?.addEventListener('submit', async (e) => {
   e.preventDefault();
-  document.querySelector('.form-msg').textContent = 'Thank you! Your message is ready to be connected with your email/backend.';
-  e.target.reset();
+
+  const form = e.target;
+
+  const response = await fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+
+  if (response.ok) {
+    Swal.fire({
+      title: 'Message Sent!',
+      text: 'We received your message and will contact you soon.',
+      icon: 'success',
+      confirmButtonText: 'Done',
+      draggable: true
+    });
+
+    form.reset();
+
+  } else {
+    Swal.fire({
+      title: 'Oops!',
+      text: 'Something went wrong. Please try again.',
+      icon: 'error',
+      confirmButtonText: 'Try Again'
+    });
+  }
 });
